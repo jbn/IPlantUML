@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jbn/IPlantUML.svg?branch=master)](https://travis-ci.org/jbn/IPlantUML)
+
 # What is it?
 
 This Python package defines a [PlantUML](http://plantuml.com/) cell magic for 
