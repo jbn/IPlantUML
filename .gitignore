@@ -1,0 +1,5 @@
+.idea/
+*.iml
+*.pyc
+MANIFEST
+dist/
