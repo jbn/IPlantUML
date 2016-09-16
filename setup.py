@@ -1,7 +1,6 @@
 import os
 import os.path
 from distutils.core import setup
-from distutils.core import Command
 from distutils.command.install import install as _install
 import fileinput
 
