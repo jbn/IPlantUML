@@ -20,6 +20,13 @@ pip install iplantuml
 
 Then, download `plantuml.jar` and copy it to `/usr/local/bin/plantuml.jar`. 
 
+Alternatively you can set a custom path for plantuml.jar during installation
+
+```sh
+pip install iplantuml --jarpath /my/custom/path/plantuml.jar
+```
+
+
 ## Usage
 
 In Ipython, create a cell like,
