@@ -4,6 +4,7 @@ import subprocess
 from IPython.core.magic import register_cell_magic
 from IPython.display import SVG
 
+PLANTUMLPATH = '/usr/local/bin/plantuml.jar'
 
 def plantuml_exec(*file_names, **kwargs):
     """
@@ -14,7 +15,7 @@ def plantuml_exec(*file_names, **kwargs):
         jar file resides.
     :return: the path to the generated SVG UML diagram.
     """
-    plantuml_path = kwargs.get('plantuml_path', "/usr/local/bin/plantuml.jar")
+    plantuml_path = kwargs.get('plantuml_path', PLANTUMLPATH)
 
     cmd = ["java",
            "-splash:no",
