@@ -27,8 +27,8 @@ class InstallCommand(_install):
 
     def finalize_options(self):
         super().finalize_options()
-        print(self.jarpath, 'FSD SGSGS SDSH H')
-        search_and_replace(self.jarpath)
+        if self.jarpath is not None:
+            search_and_replace(self.jarpath)
 
     def run(self):
         super().run()
