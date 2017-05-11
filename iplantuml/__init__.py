@@ -4,7 +4,18 @@ import subprocess
 from IPython.core.magic import register_cell_magic
 from IPython.display import SVG
 
+__title__ = "iplantuml"
+__description__ = "Package which adds a PlantUML cell magic to IPython."
+__uri__ = "https://github.com/jbn/iplantuml"
+__doc__ = __description__ + " <" + __uri__ + ">"
+__license__ = "MIT"
+__copyright__ = "Copyright (c) 2017 John Bjorn Nelson"
+__version__ = "0.0.5"
+__author__ = "John Bjorn Nelson"
+__email__ = "jbn@abreka.com"
+
 PLANTUMLPATH = '/usr/local/bin/plantuml.jar'
+
 
 def plantuml_exec(*file_names, **kwargs):
     """
