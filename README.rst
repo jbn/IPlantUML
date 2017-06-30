@@ -30,7 +30,9 @@ installation
 
 .. code:: sh
 
-    pip install iplantuml --jarpath /my/custom/path/plantuml.jar
+    git clone https://github.com/jbn/IPlantUML.git
+    cd IPlantUML
+    python setup.py install iplantuml --jarpath /my/custom/path/plantuml.jar
 
 Usage
 -----
