@@ -62,13 +62,16 @@ def search_and_replace(jarpath):
     filename = os.path.join('iplantuml', '__init__.py')
 
     # rewrite __init__.py in place modifying the PLANTUMLPATH on the go.
-    with fileinput.FileInput(filename, inplace=True) as file:
-        for line in file:
-            if line[:12] == 'PLANTUMLPATH':
-                print('PLANTUMLPATH = \'{}\''.format(jarpath))
-            else:
-                # suppress endline with end='', line already has one
-                print(line, end='')
+    f = fileinput.FileInput(filename, inplace=True)
+
+    for line in f:
+        if line[:12] == 'PLANTUMLPATH':
+            print('PLANTUMLPATH = \'{}\''.format(jarpath))
+        else:
+            # suppress endline with end='', line already has one
+            print(line, end='')
+
+    f.close()
 
 
 class InstallCommand(_install):
@@ -76,16 +79,16 @@ class InstallCommand(_install):
                     [('jarpath=', None, 'path of plantuml.jar')])
 
     def initialize_options(self):
-        super().initialize_options()
+        _install.initialize_options(self)
         self.jarpath = None
 
     def finalize_options(self):
-        super().finalize_options()
+        _install.finalize_options(self)
         if self.jarpath is not None:
             search_and_replace(self.jarpath)
 
     def run(self):
-        super().run()
+        _install.run(self)
 
 
 if __name__ == "__main__":
