@@ -90,9 +90,7 @@ def plantuml(line, cell):
         return SVG(filename=svg_name)
     finally:
         if not retain:
-            os.unlink(uml_path)
-
+            if os.path.exists(uml_path): os.unlink(uml_path)
             svg_path = base_name + ".svg"
-            if os.path.exists(svg_path):
-                os.unlink(svg_path)
+            if os.path.exists(svg_path): os.unlink(svg_path)
 
