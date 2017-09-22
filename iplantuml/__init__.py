@@ -6,6 +6,8 @@ import uuid
 from IPython.core.magic import register_cell_magic
 from IPython.display import SVG
 
+import plantweb # dummy import to ensure plantweb module is present
+
 __title__ = "iplantuml"
 __description__ = "Package which adds a PlantUML cell magic to IPython."
 __uri__ = "https://github.com/jbn/iplantuml"
