@@ -47,8 +47,6 @@ def plantuml_web(*file_names, **kwargs):
     PlantUML's web service via the plantweb module.
 
     :param file_names: the filenames of the documents for parsing by PlantUML.
-    :param kwargs: optionally `plantuml_path`, indicating where the PlantUML
-        jar file resides.
     :return: the path to the generated SVG UML diagram.
     """
 
