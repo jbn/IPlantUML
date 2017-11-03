@@ -71,6 +71,3 @@ example,
     @enduml
 
 generates and retains ``auth.uml`` and ``auth.svg``.
-
-.. |Build Status| image:: https://travis-ci.org/jbn/IPlantUML.svg?branch=master
-   :target: https://travis-ci.org/jbn/IPlantUML

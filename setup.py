@@ -37,7 +37,7 @@ CLASSIFIERS = [
         "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
-INSTALL_REQUIRES = []
+INSTALL_REQUIRES = ['plantweb']
 
 ###############################################################################
 
