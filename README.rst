@@ -16,14 +16,19 @@ gist <http://chickenbit.com/blog/2014/10/inline-plantuml-diagrams-in-ipython-not
 Installation
 ------------
 
-First, install IPlantum with pip.
+First, install IPlantuml with pip.
 
 .. code:: sh
 
     pip install iplantuml
 
-Then, download ``plantuml.jar`` and copy it to
+Then, install plantuml. On Debian based system you can install plantuml
+package. Otherwise you can download ``plantuml.jar`` and copy it to
 ``/usr/local/bin/plantuml.jar``.
+
+.. code:: sh
+
+    sudo apt install plantuml
 
 Alternatively you can set a custom path for plantuml.jar during
 installation
