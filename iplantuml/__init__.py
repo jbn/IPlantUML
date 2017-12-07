@@ -101,7 +101,7 @@ def plantuml(line, cell):
             output = plantuml_web(uml_path)
         else:
             plantuml_path = os.path.abspath(args.plantuml_path or PLANTUMLPATH)
-            plantuml_exec(uml_path, plantuml_path=plantuml_path)
+            output = plantuml_exec(uml_path, plantuml_path=plantuml_path)
         svg_name = output[0]
         return SVG(filename=svg_name)
     finally:
