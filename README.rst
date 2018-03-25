@@ -52,6 +52,17 @@ then, create a cell like,
 
 ::
 
+    %%plantuml --jar
+
+    @startuml
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+    @enduml
+
+The output will be the generated SVG UML diagram using the plantuml.jar on your local system. To utilise remote rendering on plantweb omit the `--jar` argument:
+
+::
+
     %%plantuml
 
     @startuml
@@ -59,7 +70,6 @@ then, create a cell like,
     Bob --> Alice: Authentication Response
     @enduml
 
-The output will be the generated SVG UML diagram.
 
 By default, the magic removes the intermediate (``tmp.uml``) and target
 (``tmp.svg``) files. However, if you enter a name in the ``%%plantuml``
