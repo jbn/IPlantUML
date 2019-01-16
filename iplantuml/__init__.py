@@ -67,6 +67,14 @@ def plantuml_web(*file_names, **kwargs):
 
     return _exec_and_get_paths(cmd, file_names)
 
+@register_cell_magic
+def plantuml_pythoncode(line, cell):
+    from io import StringIO
+    import sys
+    old_stdout = sys.stdoutsys.stdout = mystdout = StringIO()
+    exec(cell)
+    sys.stdout = old_stdout
+    plantuml(line, mystdout.getvalue())
 
 @register_cell_magic
 def plantuml(line, cell):
