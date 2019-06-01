@@ -70,6 +70,19 @@ The output will be the generated SVG UML diagram using the plantuml.jar on your 
     Bob --> Alice: Authentication Response
     @enduml
 
+To specify an alternative plantuml jar path one can also use the `-p` switch:
+
+::
+
+    %%plantuml
+
+    @startuml --jar -p /usr/share/plantuml/plantuml.jar
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+    @enduml
+
+Further one can use the `PLANTUMLPATH` environment variable to set the
+plantuml.jar path.
 
 By default, the magic removes the intermediate (``tmp.uml``) and target
 (``tmp.svg``) files. However, if you enter a name in the ``%%plantuml``
@@ -86,3 +99,5 @@ example,
     @enduml
 
 generates and retains ``auth.uml`` and ``auth.svg``.
+
+
