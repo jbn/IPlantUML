@@ -74,9 +74,9 @@ To specify an alternative plantuml jar path one can also use the `-p` switch:
 
 ::
 
-    %%plantuml
+    %%plantuml --jar -p /usr/share/plantuml/plantuml.jar
 
-    @startuml --jar -p /usr/share/plantuml/plantuml.jar
+    @startuml 
     Alice -> Bob: Authentication Request
     Bob --> Alice: Authentication Response
     @enduml
