@@ -43,7 +43,8 @@ def plantuml_exec(*file_names, **kwargs):
         jar file resides.
     :return: the path to the generated SVG UML diagram.
     """
-    plantuml_path = kwargs.get('plantuml_path', PLANTUMLPATH)
+    plantuml_path = os.environ.get('PLANTUMLPATH',PLANTUMLPATH) 
+    plantuml_path = kwargs.get('plantuml_path', plantuml_path)
 
     cmd = ["java",
            "-splash:no",
