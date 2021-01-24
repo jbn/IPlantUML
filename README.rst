@@ -52,6 +52,17 @@ then, create a cell like,
 
 ::
 
+    %%plantuml --bin
+
+    @startuml
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+    @enduml
+
+The output will be the generated SVG UML diagram using the plantuml binary on your local system. To utilise remote rendering on plantweb omit the `--bin` argument:
+
+::
+
     %%plantuml --jar
 
     @startuml
