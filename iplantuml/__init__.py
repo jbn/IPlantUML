@@ -34,6 +34,20 @@ def _exec_and_get_paths(cmd, file_names):
     return [os.path.splitext(f)[0] + ".svg" for f in file_names]
 
 
+def plantuml_exec_bin(*file_names, **kwargs):
+    """
+    Given a list of UML documents, generate corresponding SVG diagrams.
+
+    :param file_names: the filenames of the documents for parsing by PlantUML.
+    :return: the path to the generated SVG UML diagram.
+    """
+
+    cmd = ["plantuml",
+           "-tsvg"] + list(file_names)
+
+    return _exec_and_get_paths(cmd, file_names)
+
+
 def plantuml_exec(*file_names, **kwargs):
     """
     Given a list of UML documents, generate corresponding SVG diagrams.
@@ -80,6 +94,8 @@ def plantuml(line, cell):
     """
 
     parser = argparse.ArgumentParser()
+    parser.add_argument("-b", "--bin", action="store_true",
+                        help="render using plantuml binary (default is plantweb)")
     parser.add_argument("-j", "--jar", action="store_true",
                         help="render using plantuml.jar (default is plantweb)")
     parser.add_argument("-n", "--name", type=str, default=None,
@@ -89,7 +105,7 @@ def plantuml(line, cell):
     args = parser.parse_args(line.split() if line else "")
     retain = args.name is not None
     base_name = args.name or str(uuid.uuid4())
-    use_web = not (args.jar or args.plantuml_path)
+    use_web = not (args.bin or args.jar or args.plantuml_path)
 
     uml_path = base_name + ".uml"
     with open(uml_path, 'w') as fp:
@@ -99,6 +115,8 @@ def plantuml(line, cell):
         output = None
         if use_web:
             output = plantuml_web(uml_path)
+        elif args.bin:
+            output = plantuml_exec_bin(uml_path)
         else:
             plantuml_path = os.path.abspath(args.plantuml_path or PLANTUMLPATH)
             output = plantuml_exec(uml_path, plantuml_path=plantuml_path)
