@@ -1,4 +1,5 @@
 import argparse
+import sys
 import os
 import subprocess
 import uuid
@@ -26,6 +27,7 @@ __email__ = "jbn@abreka.com"
 ###############################################################################
 
 PLANTUMLPATH = '/usr/local/bin/plantuml.jar'
+PLANTUMLPATH = '/opt/plantuml/plantuml.jar'
 
 
 def _exec_and_get_paths(cmd, file_names):
@@ -61,9 +63,11 @@ def plantuml_web(*file_names, **kwargs):
     :param file_names: the filenames of the documents for parsing by PlantUML.
     :return: the path to the generated SVG UML diagram.
     """
-    cmd = ["plantweb",
-           "--format",
-           "auto"] + list(file_names)
+    # Prefix is required to find plantweb if using virtual environments
+    bin_location = os.path.dirname(sys.executable)
+    cmd = [os.path.join(bin_location, 'plantweb'),
+           '--format',
+           'auto'] + list(file_names)
 
     return _exec_and_get_paths(cmd, file_names)
 
