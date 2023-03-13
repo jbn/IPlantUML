@@ -27,7 +27,6 @@ __email__ = "jbn@abreka.com"
 ###############################################################################
 
 PLANTUMLPATH = '/usr/local/bin/plantuml.jar'
-PLANTUMLPATH = '/opt/plantuml/plantuml.jar'
 
 
 def _exec_and_get_paths(cmd, file_names):
